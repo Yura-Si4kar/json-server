@@ -1,0 +1,85 @@
+.case-shoping {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    // height: 100%;
+    padding: 10px;
+    margin: 90px auto 0; 
+    border: 1px solid greenyellow;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    display: none;
+
+    &_btn {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        font-size: 14px;
+        padding: 5px 8px;
+        background-color: rgba(0, 255, 255, 0.5);
+        color: white;
+        text-align: center;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+.shoping-title {
+    color: yellow;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+.shoping-list {
+    height: 250px;
+    padding: 10px 20px;
+    text-align: left;
+    overflow: auto;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    color: yellow;
+    font-size: 20px;
+
+    & span {
+        margin-left: 5px;
+    }
+}
+
+.done {
+    text-decoration: line-through;
+    text-decoration-color: black;    
+}
+
+.form-title {
+    color: #ffff00a6;
+    font-size: 14px;
+}
+
+.shopping-input {
+    width: 40%;
+    background-color: transparent;
+    border: none;
+    color: white;
+    caret-color:white;
+    outline: none;
+
+    &::placeholder {
+        color: rgba(255,255,255,0.7);
+    }
+}
+
+.add-item {
+    font-size: 14px;
+    padding: 2px 5px;
+    border: none;
+    background-color: #00ff058f;
+    border-radius: 8px;
+    color: #ffff00a6;
+}

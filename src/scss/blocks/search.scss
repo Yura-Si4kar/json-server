@@ -1,0 +1,20 @@
+.search {
+    padding: 20px 0;
+    display: flex;
+}
+.search-title {
+    font-size: 14px;
+}
+.search-input {
+    background-color: transparent;
+    caret-color: white;
+    outline: none;
+    border-radius: 8px;
+}
+.search-result {
+    padding: 20px 0 20px;
+    color: red;
+    font-size: 25px;
+    letter-spacing: 1px;
+    line-height: 32px;
+}
