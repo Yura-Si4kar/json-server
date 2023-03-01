@@ -6,8 +6,8 @@ import ShoppingFormView from "../view/shopping/ShoppingFormView.mjs";
 import ShoppingListView from "../view/shopping/ShoppingListView.mjs";
 import TodosFormView from "../view/todos/TodosFormView.mjs";
 import TodosListView from "../view/todos/TodosListView.mjs";
-import Weather from "../view/weather/Weather.mjs";
-// import loadWeather from "../view/weather/WeatherView.mjs";
+// import Weather from "../view/weather/Weather.mjs";
+import loadWeather from "../view/weather/WeatherView.mjs";
 
 export default class AppController {
     constructor(body, wrapper, casesBlock, shopping, weather) {
@@ -37,11 +37,11 @@ export default class AppController {
         casesBlock.insertAdjacentHTML('afterbegin', this.todosFormView.el);
         casesBlock.insertAdjacentHTML('afterbegin', this.todosListView.el);
     // Додаємо віджет погоди
-        // this.weatherWidget = loadWeather();
-        this.widget = new Weather({
-            showPosition: this.currentPosition,
-        });
-        weather.insertAdjacentHTML('afterbegin', this.widget.el);
+        this.weatherWidget = loadWeather();
+        // this.widget = new Weather({
+        //     showPosition: this.currentPosition,
+        // });
+        // weather.insertAdjacentHTML('afterbegin', this.widget.el);
     // Додаємо блок покупок
         this.shoppingListView = new ShoppingListView({
             onClearListBtnClick: this.clearShoppingList,
@@ -59,8 +59,10 @@ export default class AppController {
     // Рендер списку справ при загрузці
         this._collection
             .fetchTodosList()
-            .then(() => this.todosListView.renderList(this._collection._list));
-        this._collection.fetchWeatherData();
+            .then(() => {
+                this.todosListView.renderList(this._collection._list)
+                console.log(this._collection._list);
+            });
     }
 
     clickOnBurger = (body, burger, menu) => {
