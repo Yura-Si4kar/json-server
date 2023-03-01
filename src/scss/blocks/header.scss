@@ -52,7 +52,7 @@
   text-decoration: none;
   font-size: 18px;
 }
-@media (max-width:768px) {
+@media (max-width:991px) {
   body.lock {
     overflow: hidden;
   }
@@ -131,5 +131,12 @@
   }
   .header__link {
     font-size: 20px;
+  }
+}
+
+@media (min-width: 992px) {
+  .header {
+    display: none;
+    position: inherit;
   }
 }

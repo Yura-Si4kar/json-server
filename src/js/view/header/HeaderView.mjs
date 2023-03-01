@@ -62,6 +62,5 @@ export default class HeaderView {
         }
         
         array[0].classList.add('show');
-        console.log(array);
     }
 }

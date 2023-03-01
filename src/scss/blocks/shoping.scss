@@ -83,3 +83,12 @@
     border-radius: 8px;
     color: #ffff00a6;
 }
+
+@media (min-width: 992px) {
+  .case-shoping {
+    display: block;
+    position: relative;
+    grid-area: shopping;
+    margin-top: 0;
+  }
+}

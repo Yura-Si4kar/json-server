@@ -1,4 +1,4 @@
-import { TODOS_URL } from "../config.mjs";
+import { TODOS_URL, WEATHER_URL } from "../config.mjs";
 import AppCollection from "../model/AppCollection.mjs";
 import CalendarView from "../view/calendar/calendarView.mjs";
 import HeaderView from "../view/header/headerView.mjs";
@@ -6,10 +6,11 @@ import ShoppingFormView from "../view/shopping/ShoppingFormView.mjs";
 import ShoppingListView from "../view/shopping/ShoppingListView.mjs";
 import TodosFormView from "../view/todos/TodosFormView.mjs";
 import TodosListView from "../view/todos/TodosListView.mjs";
-import loadWeather from "../view/weather/WeatherView.mjs";
+import Weather from "../view/weather/Weather.mjs";
+// import loadWeather from "../view/weather/WeatherView.mjs";
 
 export default class AppController {
-    constructor(body, wrapper, casesBlock, shopping) {
+    constructor(body, wrapper, casesBlock, shopping, weather) {
     // Підключаємо та вставляємо головне меню
         this.headerView = new HeaderView(body, {
             onBurgerClick: this.clickOnBurger,
@@ -36,7 +37,11 @@ export default class AppController {
         casesBlock.insertAdjacentHTML('afterbegin', this.todosFormView.el);
         casesBlock.insertAdjacentHTML('afterbegin', this.todosListView.el);
     // Додаємо віджет погоди
-        this.weatherWidget = loadWeather();
+        // this.weatherWidget = loadWeather();
+        this.widget = new Weather({
+            showPosition: this.currentPosition,
+        });
+        weather.insertAdjacentHTML('afterbegin', this.widget.el);
     // Додаємо блок покупок
         this.shoppingListView = new ShoppingListView({
             onClearListBtnClick: this.clearShoppingList,
@@ -48,13 +53,14 @@ export default class AppController {
         shopping.insertAdjacentHTML('afterbegin', this.shoppingFormView.el);
         shopping.insertAdjacentHTML('afterbegin', this.shoppingListView.el);
     // Головна колекція
-        this._collection = new AppCollection(this.shoppingFormView.key, TODOS_URL);
+        this._collection = new AppCollection(this.shoppingFormView.key, TODOS_URL, WEATHER_URL);
     // Рендер списку покупок при загрузці
         this.shoppingListView.renderShoppingList(this._collection._restoreData());
     // Рендер списку справ при загрузці
         this._collection
             .fetchTodosList()
             .then(() => this.todosListView.renderList(this._collection._list));
+        this._collection.fetchWeatherData();
     }
 
     clickOnBurger = (body, burger, menu) => {
@@ -113,5 +119,9 @@ export default class AppController {
     onCheckBoxClick = (id) => {
         this._collection.purchasedItem(id);
         this.shoppingListView.renderShoppingList(this._collection._restoreData());
+    }
+
+    currentPosition = (position) => {
+        this._collection.fetchWeatherDataWithPosition(position);
     }
 }

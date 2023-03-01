@@ -26,8 +26,22 @@ html .body {
   padding: 0 20px;
 }
 
-// .wrapper {
-//   height: 100vh;
-//   position: relative;
-//   overflow: auto;
-// }
+.wrapper {
+  height: 100vh;
+  position: relative;
+  overflow: auto;
+}
+
+@media (min-width:992px) {
+  .wrapper {
+    position: inherit;
+    display: grid;
+    grid-template-columns: 30% 45% 25%;
+    grid-template-rows: 50% 50%;
+    grid-template-areas:
+    "calendar list weather"
+    "calendar list shopping";
+    display: flex;
+    align-items: center;
+  }
+}

@@ -1,56 +1,100 @@
 export default class TodosListView {
     static list_template = `<div class="case-accardion">
         <div class="case-accardion_box">
-            <button type="button" class="list-btn" data-id='1'>08:00</button>
+            <button type="button" class="list-btn" data-id='1'>00:00</button>
+            <div class="content-block-list eight-oclock-am" data-time="00:00"></div>
+        </div>
+        <div class="case-accardion_box">
+            <button type="button" class="list-btn" data-id='2'>01:00</button>
+            <div class="content-block-list eight-oclock-am" data-time="01:00"></div>
+        </div>
+        <div class="case-accardion_box">
+            <button type="button" class="list-btn" data-id='3'>02:00</button>
+            <div class="content-block-list eight-oclock-am" data-time="02:00"></div>
+        </div>
+        <div class="case-accardion_box">
+            <button type="button" class="list-btn" data-id='4'>03:00</button>
+            <div class="content-block-list eight-oclock-am" data-time="03:00"></div>
+        </div>
+        <div class="case-accardion_box">
+            <button type="button" class="list-btn" data-id='5'>04:00</button>
+            <div class="content-block-list eight-oclock-am" data-time="04:00"></div>
+        </div>
+        <div class="case-accardion_box">
+            <button type="button" class="list-btn" data-id='6'>05:00</button>
+            <div class="content-block-list eight-oclock-am" data-time="05:00"></div>
+        </div>
+        <div class="case-accardion_box">
+            <button type="button" class="list-btn" data-id='7'>06:00</button>
+            <div class="content-block-list eight-oclock-am" data-time="06:00"></div>
+        </div>
+        <div class="case-accardion_box">
+            <button type="button" class="list-btn" data-id='8'>07:00</button>
+            <div class="content-block-list eight-oclock-am" data-time="07:00"></div>
+        </div>
+        <div class="case-accardion_box">
+            <button type="button" class="list-btn" data-id='9'>08:00</button>
             <div class="content-block-list eight-oclock-am" data-time="08:00"></div>
         </div>
         <div class="case-accardion_box">
-            <button type="button" class="list-btn" data-id='2'>09:00</button>
+            <button type="button" class="list-btn" data-id='10'>09:00</button>
             <div class="content-block-list nine-oclock-am" data-time="09:00"></div>
         </div>
         <div class="case-accardion_box">
-            <button type="button" class="list-btn" data-id='3'>10:00</button>
+            <button type="button" class="list-btn" data-id='11'>10:00</button>
             <div class="content-block-list ten-oclock-am" data-time="10:00"></div>
         </div>
         <div class="case-accardion_box">
-            <button type="button" class="list-btn" data-id='4'>11:00</button>
+            <button type="button" class="list-btn" data-id='12'>11:00</button>
             <div class="content-block-list eleven-oclock-am" data-time="11:00"></div>
         </div>
         <div class="case-accardion_box">
-            <button type="button" class="list-btn" data-id='5'>12:00</button>
+            <button type="button" class="list-btn" data-id='13'>12:00</button>
             <div class="content-block-list twelve-oclock-am" data-time="12:00"></div>
         </div>
         <div class="case-accardion_box">
-            <button type="button" class="list-btn" data-id='6'>13:00</button>
+            <button type="button" class="list-btn" data-id='14'>13:00</button>
             <div class="content-block-list one-oclock-am" data-time="13:00"></div>
         </div>
         <div class="case-accardion_box">
-            <button type="button" class="list-btn" data-id='7'>14:00</button>
+            <button type="button" class="list-btn" data-id='15'>14:00</button>
             <div class="content-block-list two-oclock-am" data-time="14:00"></div>
         </div>
         <div class="case-accardion_box">
-            <button type="button" class="list-btn" data-id='8'>15:00</button>
+            <button type="button" class="list-btn" data-id='16'>15:00</button>
             <div class="content-block-list three-oclock-am" data-time="15:00"></div>
         </div>
         <div class="case-accardion_box">
-            <button type="button" class="list-btn" data-id='9'>16:00</button>
+            <button type="button" class="list-btn" data-id='17'>16:00</button>
             <div class="content-block-list four-oclock-am" data-time="16:00"></div>
         </div>
         <div class="case-accardion_box">
-            <button type="button" class="list-btn" data-id='10'>17:00</button>
+            <button type="button" class="list-btn" data-id='18'>17:00</button>
             <div class="content-block-list five-oclock-am" data-time="17:00"></div>
         </div>
         <div class="case-accardion_box">
-            <button type="button" class="list-btn" data-id='11'>18:00</button>
+            <button type="button" class="list-btn" data-id='19'>18:00</button>
             <div class="content-block-list six-oclock-am" data-time="18:00"></div>
         </div>
         <div class="case-accardion_box">
-            <button type="button" class="list-btn" data-id='12'>19:00</button>
+            <button type="button" class="list-btn" data-id='20'>19:00</button>
             <div class="content-block-list seven-oclock-am" data-time="19:00"></div>
         </div>
         <div class="case-accardion_box">
-            <button type="button" class="list-btn" data-id='13'>20:00</button>
+            <button type="button" class="list-btn" data-id='21'>20:00</button>
             <div class="content-block-list eight-oclock-am" data-time="20:00"></div>
+        </div>
+        <div class="case-accardion_box">
+            <button type="button" class="list-btn" data-id='22'>21:00</button>
+            <div class="content-block-list eight-oclock-am" data-time="21:00"></div>
+        </div>
+        <div class="case-accardion_box">
+            <button type="button" class="list-btn" data-id='23'>22:00</button>
+            <div class="content-block-list eight-oclock-am" data-time="22:00"></div>
+        </div>
+        <div class="case-accardion_box">
+            <button type="button" class="list-btn" data-id='24'>23:00</button>
+            <div class="content-block-list eight-oclock-am" data-time="23:00"></div>
         </div>
     </div>`;
 

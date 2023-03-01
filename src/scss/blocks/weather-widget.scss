@@ -6,6 +6,7 @@
     height: 100%;
     display: none;
 }
+
 .weather {
     background-color: rgba(135, 206, 250, 0.8);
     border-radius: 10px;
@@ -52,4 +53,18 @@
         margin-left: 5px;
         content: '°C';
     }
+}
+
+@media (min-width: 992px) {
+  .case-weather {
+    display: block;
+    position: inherit;
+    width: 100%;
+    grid-area: weather;
+    margin-bottom: 20px;
+  }
+
+  .weather {
+    margin-top: 0;
+  }
 }

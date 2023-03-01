@@ -176,3 +176,16 @@
 .show {
   display: block;
 }
+
+@media (min-width: 992px) {
+  .case {
+    display: block;
+    position: inherit;
+    grid-area: list;
+    margin-top: 0;
+
+    &-aside {
+      width: 100%;
+    }
+  }
+}
