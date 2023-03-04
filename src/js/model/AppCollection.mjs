@@ -35,20 +35,19 @@ export default class AppCollection {
         document.querySelector(menu).classList.toggle('activation');
         document.querySelector(body).classList.toggle('lock');
     }
-
+    
     onLinkClick(e, links, contents) {
         let index = Array.from(links).indexOf(e.target);
-
         [...contents].forEach((elem) => {
             elem.classList.remove('show');
             elem.classList.remove('hide');
         })
-
+        
         contents[index].classList.add('show');
 
         document.body.classList.remove('lock');
         document.querySelector('.header__burger').classList.remove('activation');
-        document.querySelector('.header__menu').classList.remove('activation');
+        document.querySelector('.header__menu').classList.remove('activation');    
     }
 
     startPage(contents) {
@@ -68,8 +67,37 @@ export default class AppCollection {
         dates.forEach(day => day.classList.remove('active_day'));
         target.classList.add('active_day');
 
-        calendarSection.classList.add('hide');
-        caseListSection.classList.add('show');
+        const isMobile = {
+            Android: function () {
+                return navigator.userAgent.match(/Android/i);
+            },
+            BlackBerry: function () {
+                return navigator.userAgent.match(/BlackBerry/i);
+            },
+            IOS: function () {
+                return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+            },
+            Opera: function () {
+                return navigator.userAgent.match(/Opera Mini/i);
+            },
+            Windows: function () {
+                return navigator.userAgent.match(/IEMobile/i);
+            },
+            any: function () {
+                return (
+                isMobile.Android()||
+                isMobile.BlackBerry()||
+                isMobile.IOS()||
+                isMobile.Opera()||
+                isMobile.Windows()
+                );
+            }
+        }
+        
+        if (isMobile.any()) {
+            calendarSection.classList.add('hide');
+            caseListSection.classList.add('show');
+        }
     }
 
     choosePreviusMonth(calendar) {

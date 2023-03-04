@@ -66,12 +66,14 @@
   display: flex;
   align-items: center;
   top: calc(50% - 25px);
-  right: 15px;
-  font-size: 35px;
-  padding: 0px;
-  border: none;
-  background-color: transparent;
+  right: 7px;
+  font-size: 15px;
+  padding: 5px 6px;
+  border: 5px solid silver;
+  border-radius: 30px;
+  background-color: blue;
   color: lightblue;
+  z-index: 1;
   cursor: pointer;
 }
 .red {
@@ -85,11 +87,6 @@
 }
 .blue {
   background-color: blue;
-}
-.add-case__btn span {
-  display: none;
-  font-size: 15px;
-  padding-right: 20px;
 }
 .add-case__btn:hover {
   color: blue;
@@ -111,7 +108,7 @@
   top: 0;
   right: 8px;
   font-size: 20px;
-  color: #888887;
+  color: blue;
   float: right;
   margin-left: 5px;
 }
@@ -124,8 +121,7 @@
 }
 .active {
   font-weight: bold;
-  // padding-right: 470px;
-  padding-right: 245px;
+  padding-right: 95%;
   border-bottom: 2px dashed #BEBFBE;
   border-radius: 8px 8px 0 0;
   background-color: transparent;
@@ -139,7 +135,7 @@
   background-color: transparent;
 }
 .color-info {
-  height: 60px;
+  height: 45px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -175,6 +171,15 @@
 
 .show {
   display: block;
+}
+
+.mirror {
+  top: 53px;
+  right: 16px;
+  opacity: 0.2;
+  transform: scaleY(-1) skew(46deg, 360deg);
+  z-index: 0;
+  padding: 0;
 }
 
 @media (min-width: 992px) {

@@ -18,7 +18,7 @@ export default class TodosFormView {
                 <label for="title" class="title">Введіть назву події: </label>
                 <input type="text" name="title" id="case" class="new-case input">
             </p>
-            <button class="add-case__btn"><span class="add-case__btn-text">Запланувати подію</span>+</button>
+            <button class="add-case__btn">Запланувати подію</button>
         </form>
     </div>`;
 
@@ -31,6 +31,8 @@ export default class TodosFormView {
         document.addEventListener('DOMContentLoaded', (e) => {
             this.inputs = document.querySelectorAll('.input');
             this.form = document.querySelector('.form');
+            this.btn = document.querySelector('.add-case__btn');
+            this.mirror(this.form, this.btn);
 
             this.form.addEventListener('submit', (e) => {
                 e.preventDefault();
@@ -46,5 +48,12 @@ export default class TodosFormView {
                 this.form.reset();
             })
         })
+    }
+
+    mirror(form, source) {
+        let mirror = source.cloneNode(true);
+        mirror.classList.add('mirror');
+        
+        form.appendChild(mirror);
     }
 }
