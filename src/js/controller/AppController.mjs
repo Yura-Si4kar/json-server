@@ -6,7 +6,6 @@ import ShoppingFormView from "../view/shopping/ShoppingFormView.mjs";
 import ShoppingListView from "../view/shopping/ShoppingListView.mjs";
 import TodosFormView from "../view/todos/TodosFormView.mjs";
 import TodosListView from "../view/todos/TodosListView.mjs";
-// import Weather from "../view/weather/Weather.mjs";
 import loadWeather from "../view/weather/WeatherView.mjs";
 
 export default class AppController {
@@ -38,10 +37,6 @@ export default class AppController {
         casesBlock.insertAdjacentHTML('afterbegin', this.todosListView.el);
     // Додаємо віджет погоди
         this.weatherWidget = loadWeather();
-        // this.widget = new Weather({
-        //     showPosition: this.currentPosition,
-        // });
-        // weather.insertAdjacentHTML('afterbegin', this.widget.el);
     // Додаємо блок покупок
         this.shoppingListView = new ShoppingListView({
             onClearListBtnClick: this.clearShoppingList,
@@ -121,9 +116,5 @@ export default class AppController {
     onCheckBoxClick = (id) => {
         this._collection.purchasedItem(id);
         this.shoppingListView.renderShoppingList(this._collection._restoreData());
-    }
-
-    currentPosition = (position) => {
-        this._collection.fetchWeatherDataWithPosition(position);
     }
 }

@@ -22,19 +22,31 @@ export default class ShoppingFormView {
             this.form.addEventListener('submit', (e) => {
                 e.preventDefault();
 
-                let item = {
+                let obj = {
                     id: Date.now(),
                     buy: this.getItemValue(),
                     done: false,
                     checked: false,
                 };
 
-                config.onShoppingFormSubmit && config.onShoppingFormSubmit(item);
+                for (var item in obj) { 
+                    while (this.validation(obj[item])) {
+                        this.form.reset();
+                        alert('Заповніть всі поля');
+                        document.querySelector('.shopping-input').onfocus();
+                    }
+                }
+
+                config.onShoppingFormSubmit && config.onShoppingFormSubmit(obj);
 
                 this.form.reset();
             })
         })
     }
+
+    validation(val) {
+        return val === null || val === '' || 3 > val.length;
+    }  
 
     getItemValue() {
         return this.formInput.value;

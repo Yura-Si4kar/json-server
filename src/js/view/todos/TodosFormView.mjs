@@ -16,9 +16,9 @@ export default class TodosFormView {
             </p>
             <p class="form-input">
                 <label for="title" class="title">Введіть назву події: </label>
-                <input type="text" name="title" id="case" class="new-case input">
+                <input type="text" name="title" id="case" class="new-case input" placeholder='Введіть більше 3-х символів'>
             </p>
-            <button class="add-case__btn">Запланувати подію</button>
+            <button class="add-case__btn">&#43;</button>
         </form>
     </div>`;
 
@@ -32,7 +32,6 @@ export default class TodosFormView {
             this.inputs = document.querySelectorAll('.input');
             this.form = document.querySelector('.form');
             this.btn = document.querySelector('.add-case__btn');
-            this.mirror(this.form, this.btn);
 
             this.form.addEventListener('submit', (e) => {
                 e.preventDefault();
@@ -42,18 +41,22 @@ export default class TodosFormView {
                 this.inputs.forEach((inp) => {
                     contact[inp.name] = inp.value;
                 });
-
+                
+                for (var item in contact) { 
+                    while (this.validation(contact[item])) {
+                        this.form.reset();
+                        alert('Заповніть всі поля');
+                        document.querySelector('.time-input').onfocus();
+                    }
+                }
+                
                 config.onFormSubmit && config.onFormSubmit(contact);
-
                 this.form.reset();
             })
         })
     }
 
-    mirror(form, source) {
-        let mirror = source.cloneNode(true);
-        mirror.classList.add('mirror');
-        
-        form.appendChild(mirror);
-    }
+    validation(val) {
+        return val === null || val === '' || 3 > val.length;
+    }   
 }

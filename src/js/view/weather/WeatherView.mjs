@@ -33,10 +33,7 @@ function getWeather(data) {
     const weatherStatus = data.weather[0].main;
     const weatherIcon = data.weather[0].icon;
     const humidity = data.main.humidity;
-    const sunRise = getTime(data.sys.sunrise);
-    const sunSet = getTime(data.sys.sunset);
     const wind = data.wind.speed;
-    const pressure = data.main.pressure;
     const gust = data.wind.gust;
 
     const template = `<div class="weather">
@@ -50,29 +47,21 @@ function getWeather(data) {
             <div class="weather__status">${weatherStatus}</div>
             <div class="weather__temp">${temp}</div>
             <div class="weather__feels-like">Feals like: ${feelsLike}</div>
-            <button>More info</button>
+            <button class='weather-details_btn'>More info</button>
         </div>
-        <div class='weather-details'>
-            <div class="weather__status">Humidity: ${humidity}%</div>
-            <div class="weather__status">Sunrise: ${sunRise} AM</div>
-            <div class="weather__status">Sunset: ${sunSet} PM</div>
-            <div class="weather__status">Wind: ${wind} m/s PM</div>
-            <div class="weather__status">Gust: ${gust} m/s PM</div>
-            <div class="weather__status">Pressure: ${pressure}%</div>
+        <div class='weather-details close'>
+            <div class="weather-details-info">Humidity: ${humidity}%</div>
+            <div class="weather-details-info">Wind: ${wind} m/s PM</div>
+            <div class="weather-details-info">Gust: ${gust} m</div>
         </div>
     </div>`;
 
-    function getTime(source) {
-        let h = Math.floor(source / 1000 / 60 / 60) % 24;
-        let m = Math.floor(source / 1000 / 60) % 60;
-        let s = Math.floor(source / 1000) % 60;
-        
-        h = h < 10 ? '0' + h : h;
-        m = m < 10 ? '0' + m : m;
-        s = s < 10 ? '0' + s : s;
-
-        return `${h}:${m}:${s}`;
-    }
-
     weatherBlock.innerHTML = template;
+
+    weatherBlock.addEventListener('click', (e) => {
+        let info = document.querySelector('.weather-details');
+        if (e.target.classList.contains('weather-details_btn')) {
+            info.classList.toggle('close');
+        }
+    })
 }

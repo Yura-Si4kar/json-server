@@ -1,26 +1,12 @@
 export default class AppCollection {
-    constructor(key, TODOS_URL, weatherUrl) {
+    constructor(key, TODOS_URL, WEATHER_URL) {
         this._key = key;
         this._url = TODOS_URL;
-        this.getUrlWithPosition(weatherUrl);
-        this._weatherUrl = {};
+        this._weatherUrl = WEATHER_URL;
         this._list = [];
         this._shoppingList = [];
-        this.weather = {};
     }
-
-    getUrlWithPosition(weatherUrl) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-
-        async function showPosition(position) {
-            let lat = position.coords.latitude;
-            let long = position.coords.longitude;
-
-            let api = weatherUrl.replace(/&lat=/gi, `&lat=${lat.toFixed(2)}`)
-                        .replace(/&lon=/gi, `&lon=${long.toFixed(2)}`);
-        }
-    }
-
+   
     fetchTodosList() {
         return fetch(this._url, {
             method: 'GET',

@@ -14,6 +14,9 @@
     width: 100%;
     margin: 90px auto 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    position: relative;
+    transition: 0.4s;
+    overflow: auto;
 
     &__loading {
         display: flex;
@@ -54,9 +57,45 @@
         margin-left: 5px;
         content: '°C';
     }
-    &-details {
-        display: none;
+
+    &-details_btn {
+        align-self: center;
+        padding: 6px 20px;
+        border: 1px solid yellow;
+        border-radius: 8px;
+        margin-top: 10px;
+        background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+        cursor: pointer;
     }
+
+    &-details {
+        border-radius: 0 0 10px 10px;
+        position: absolute;
+        bottom: -58%;
+        left: 0;
+        width: 100%;
+        height: 58%;
+        overflow: hidden;
+        transition: all 0.2s ease 0s;
+        z-index: 5;
+        background-color: rgba(135, 206, 250, 0.8);
+        padding: 10px;
+    }
+    
+    &-details-info {
+        margin-bottom: 5px;
+        padding: 10px 5px;
+        background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+        border-radius: 15px;
+        text-align: center;
+    }
+}
+
+.close {
+    bottom: 0;
+    left: 0;
+    height: 0%;
+    padding: 0;
 }
 
 @media (min-width: 992px) {
