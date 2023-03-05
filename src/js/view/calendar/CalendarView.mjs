@@ -2,8 +2,10 @@ import Calendar from "./Calendar.mjs";
 
 export default class CalendarView{
     static calendarBlock = `<section class="calendar slide">
-        <button class="btnPrev" type="button">Попередній</button>
-        <button class="btnNext" type="button">Наступний</button>
+        <div>
+            <button class="btnPrev" type="button">Попередній</button>
+            <button class="btnNext" type="button">Наступний</button>
+        </div>
         <div class="divCal"></div>
         <div class="search">
             <label class="search-title" for="search-input">Пошук події за назвою</label>
