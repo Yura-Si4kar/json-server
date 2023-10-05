@@ -47,12 +47,6 @@ function getWeather(data) {
             <div class="weather__status">${weatherStatus}</div>
             <div class="weather__temp">${temp}</div>
             <div class="weather__feels-like">Feals like: ${feelsLike}</div>
-            <button class='weather-details_btn'>More info</button>
-        </div>
-        <div class='weather-details close'>
-            <div class="weather-details-info">Humidity: ${humidity}%</div>
-            <div class="weather-details-info">Wind: ${wind} m/s PM</div>
-            <div class="weather-details-info">Gust: ${gust} m</div>
         </div>
     </div>`;
 
