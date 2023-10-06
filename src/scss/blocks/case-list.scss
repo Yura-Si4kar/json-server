@@ -17,7 +17,7 @@
     &-today {
         position: relative;
         height: 500px;
-        border: 2px solid yellow;
+        border: 2px solid var(--yellow);
 
         &__head {
         position: absolute;
@@ -25,7 +25,7 @@
         left: 0;
         width: 100%;
         height: 90px;
-        border: 1px solid yellowgreen;
+        border: 1px solid var(--yellow-green);
         display: flex;
         justify-content: start;
         align-items: center;
@@ -58,7 +58,7 @@
 }
 .title {
   font-size: 12px;
-  color: lawngreen;
+  color: var(--lime);
   padding-left: 10px;
 }
 .add-case__btn {
@@ -69,35 +69,35 @@
   right: 33px;
   font-size: 30px;
   padding: 0 6px;
-  border: 5px solid silver;
+  border: 5px solid var(--silver);
   border-radius: 30px;
-  background-color: blue;
-  color: lightblue;
+  background-color: var(--blue);
+  color: var(--light-blue);
   z-index: 1;
   cursor: pointer;
 }
 .red {
-  background-color: red;
+  background-color: var(--red);
 }
 .green {
-  background-color: green;
+  background-color: var(--green);
 }
 .yellow {
-  background-color: yellow;
+  background-color: var(--yellow);
 }
 .blue {
-  background-color: blue;
+  background-color: var(--blue);
 }
 .add-case__btn:hover {
-  color: blue;
+  color: var(--blue);
 }
 .list-btn {
   background-color: transparent;
-  color: white;
+  color: var(--white);
   cursor: pointer;
   padding: 3px 10px;
   width: 100%;
-  border: 2px solid #BEBFBE;
+  border: 2px solid var(--soft-grey);
   border-radius: 8px;
   transition: 0.4s;
   position: relative;
@@ -108,7 +108,7 @@
   top: 0;
   right: 8px;
   font-size: 20px;
-  color: blue;
+  color: var(--blue);
   float: right;
   margin-left: 5px;
 }
@@ -122,7 +122,7 @@
 .active {
   font-weight: bold;
   padding-right: 95%;
-  border-bottom: 2px dashed #BEBFBE;
+  border-bottom: 2px dashed var(--soft-grey);
   border-radius: 8px 8px 0 0;
   background-color: transparent;
 }
@@ -146,7 +146,7 @@
   padding: 3px 5px;
   font-size: 14px;
   border-radius: 8px;
-  color: darkseagreen
+  color: var(--dirty-green);
 }
 .submit-btn {
   align-self: center;
@@ -161,7 +161,7 @@
   justify-content: space-between;
 }
 .close-btn {
-  color: red;
+  color: var(--red);
   cursor: pointer;
   padding: 0 3px;
 }

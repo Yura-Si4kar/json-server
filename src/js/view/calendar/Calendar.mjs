@@ -46,8 +46,6 @@ export default class Calendar {
         this.showcurr;
     };
     image(index) {
-        // let image = new Image();
-        // image.src = './img/january.jpg';
         document.body.style.background = `linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${this.background[index]}) center no-repeat`;
         document.body.style.backgroundSize = 'cover';
         document.body.style.transition = '0.9s';
@@ -74,48 +72,48 @@ export default class Calendar {
         // Заголовок днів неділі
         html += '<tr class="days">';
         for (let i = 0; i < this.DaysofWeek.length; i++) {
-        html += '<td>' + this.DaysofWeek[i] + '</td>';
+            html += '<td>' + this.DaysofWeek[i] + '</td>';
         }
         html += '</tr>';
         //Записуємо дні
         let i = 1;
         do {
-        let day = new Date(y, m, i).getDay();
-        //Почати нову стрічку в понеділок
-        if (day == 1) {
-            html += '<tr class="date">';
-        }
-        //Якщо перший день неділі не понеділок показати останні дні попереднього місяця
-        else if (i == 1) {
-            html += '<tr class="date">';
-            let k = lastDayOfLastMonth - firstDayOfMonth + 1;
-            for (let c = 0; c < firstDayOfMonth; c++) {
-            html += `<td class="not-current-prew" data-year='${this.currYear}' data-month='${this.currMonth}' data-day='${k}'>` + k + '</td>';
-            k++;
+            let day = new Date(y, m, i).getDay();
+            //Почати нову стрічку в понеділок
+            if (day == 1) {
+                html += '<tr class="date">';
             }
-        }
-        //Записуємо поточний день в цикл
-        let chk = new Date();
-        let chkY = chk.getFullYear();
-        let chkM = chk.getMonth();
-        if (chkY == this.currYear && chkM == this.currMonth && i == this.currDay) {
-            html += `<td class="today elem active_day" data-year='${this.currYear}' data-month='${this.currMonth}' data-day='${i}''>` + i + '</td>';
-        } else {
-            html += `<td class="normal elem" data-year='${this.currYear}' data-month='${this.currMonth}' data-day='${i}''>` + i + '</td>';
-        }
-        //Закрити стрічку в неділю
-        if (day == 0) {
-            html += '</tr>';
-        }
-        //Якщо останній день місяця не недія, показати перші дні наступного місяця
-        else if (i == lastDateOfMonth) {
-            let k = 1;
-            for (day; day < 7; day++) {
-            html += `<td class="not-current-next" data-year='${this.currYear}' data-month='${this.currMonth}' data-day='${k}'>` + k + '</td>';
-            k++;
+            //Якщо перший день неділі не понеділок показати останні дні попереднього місяця
+            else if (i == 1) {
+                html += '<tr class="date">';
+                let k = lastDayOfLastMonth - firstDayOfMonth + 1;
+                for (let c = 0; c < firstDayOfMonth; c++) {
+                html += `<td class="not-current-prew" data-year='${this.currYear}' data-month='${this.currMonth}' data-day='${k}'>` + k + '</td>';
+                k++;
+                }
             }
-        }
-        i++;
+            //Записуємо поточний день в цикл
+            let chk = new Date();
+            let chkY = chk.getFullYear();
+            let chkM = chk.getMonth();
+            if (chkY == this.currYear && chkM == this.currMonth && i == this.currDay) {
+                html += `<td class="today elem active_day" data-year='${this.currYear}' data-month='${this.currMonth}' data-day='${i}''>` + i + '</td>';
+            } else {
+                html += `<td class="normal elem" data-year='${this.currYear}' data-month='${this.currMonth}' data-day='${i}''>` + i + '</td>';
+            }
+            //Закрити стрічку в неділю
+            if (day == 0) {
+                html += '</tr>';
+            }
+            //Якщо останній день місяця не недія, показати перші дні наступного місяця
+            else if (i == lastDateOfMonth) {
+                let k = 1;
+                for (day; day < 7; day++) {
+                html += `<td class="not-current-next" data-year='${this.currYear}' data-month='${this.currMonth}' data-day='${k}'>` + k + '</td>';
+                k++;
+                }
+            }
+            i++;
         } while (i <= lastDateOfMonth);
         //Кінець таблиці
         html += '</table>';

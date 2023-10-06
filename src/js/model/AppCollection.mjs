@@ -13,6 +13,8 @@ export default class AppCollection {
         }).then((res) => res.json())
             .then((data) => {
                 this._list = data;
+            }).catch((error) => {
+                console.error('Error fetching todos:', error);
         })
     }
 
@@ -54,30 +56,12 @@ export default class AppCollection {
         target.classList.add('active_day');
 
         const isMobile = {
-            Android: function () {
-                return navigator.userAgent.match(/Android/i);
-            },
-            BlackBerry: function () {
-                return navigator.userAgent.match(/BlackBerry/i);
-            },
-            IOS: function () {
-                return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-            },
-            Opera: function () {
-                return navigator.userAgent.match(/Opera Mini/i);
-            },
-            Windows: function () {
-                return navigator.userAgent.match(/IEMobile/i);
-            },
-            any: function () {
-                return (
-                isMobile.Android()||
-                isMobile.BlackBerry()||
-                isMobile.IOS()||
-                isMobile.Opera()||
-                isMobile.Windows()
-                );
-            }
+            Android: () => navigator.userAgent.match(/Android/i),
+            BlackBerry: () => navigator.userAgent.match(/BlackBerry/i),
+            IOS: () => navigator.userAgent.match(/iPhone|iPad|iPod/i),
+            Opera: () => navigator.userAgent.match(/Opera Mini/i),
+            Windows: () => navigator.userAgent.match(/IEMobile/i),
+            any: () => isMobile.Android() || isMobile.BlackBerry() || isMobile.IOS() || isMobile.Opera() || isMobile.Windows()
         }
         
         if (isMobile.any()) {
@@ -95,15 +79,14 @@ export default class AppCollection {
     }
 
     matchSearch(block, value) {
-        this._list.forEach(element => {
-            console.log(value.length);
-            if (element.title.toLowerCase().includes(value)) {
-                block.innerHTML = `${element.title} о ${element.time}, ${new Date(element.date).toLocaleDateString()}`;
-            }
-            if (value.length < 1) {
-                block.innerHTML = '';
-            }
-        });
+        block.innerHTML = this._list
+            .filter(element => element.title.toLowerCase().includes(value))
+            .map(element => `${element.title} о ${element.time}, ${new Date(element.date).toLocaleDateString()}`)
+            .join('<br>');
+
+        if (value.length < 1) {
+            block.innerHTML = '';
+        }
     }
 
     buttonClick(target) {
@@ -134,6 +117,8 @@ export default class AppCollection {
 
         return fetch(this._url + itemId, {
             method: 'DELETE',
+        }).catch((error) => {
+            console.error('Error deleting item:', error);
         });
     }
 
@@ -146,6 +131,9 @@ export default class AppCollection {
             },
         }).then((res) => res.json())
             .then((data) => this._list.push(data))
+            .catch((error) => {
+                console.error('Error adding element:', error);
+            })
     }
 
     addItem(item) {
@@ -169,8 +157,10 @@ export default class AppCollection {
 
     purchasedItem(id) {
         let item = this._shoppingList.find((el) => el.id == id);
-        item.done = !item.done;
-        item.checked = !item.checked;
-        this._saveData();
+        if (item) {
+            item.done = !item.done;
+            item.checked = !item.checked;
+            this._saveData();
+        }
     }
 }

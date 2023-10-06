@@ -42,7 +42,7 @@ export default class TodosFormView {
                     contact[inp.name] = inp.value;
                 });
                 
-                for (var item in contact) { 
+                for (let item in contact) { 
                     while (this.validation(contact[item])) {
                         this.form.reset();
                         alert('Заповніть всі поля');

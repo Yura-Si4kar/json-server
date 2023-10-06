@@ -32,9 +32,6 @@ function getWeather(data) {
     const feelsLike = Math.round(data.main.feels_like);
     const weatherStatus = data.weather[0].main;
     const weatherIcon = data.weather[0].icon;
-    const humidity = data.main.humidity;
-    const wind = data.wind.speed;
-    const gust = data.wind.gust;
 
     const template = `<div class="weather">
         <div class="weather__header">

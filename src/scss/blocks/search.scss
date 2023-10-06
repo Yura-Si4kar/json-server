@@ -4,16 +4,18 @@
 }
 .search-title {
     font-size: 14px;
+    color: var(--white);
+    padding-right: 10px;
 }
 .search-input {
     background-color: transparent;
-    caret-color: white;
+    caret-color: var(--white);
     outline: none;
     border-radius: 8px;
 }
 .search-result {
     padding: 20px 0 20px;
-    color: red;
+    color: var(--red);
     font-size: 25px;
     font-weight: bold;
     letter-spacing: 1px;
