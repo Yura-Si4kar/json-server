@@ -47,8 +47,6 @@ export default class Calendar {
     };
     image(index) {
         document.body.style.background = `linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${this.background[index]}) center no-repeat`;
-        document.body.style.backgroundSize = 'cover';
-        document.body.style.transition = '0.9s';
     }
     //Поточний місяць
     get showcurr() {

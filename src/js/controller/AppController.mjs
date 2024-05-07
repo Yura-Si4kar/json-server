@@ -1,7 +1,7 @@
 import { TODOS_URL, WEATHER_URL } from "../config.mjs";
 import AppCollection from "../model/AppCollection.mjs";
 import CalendarView from "../view/calendar/calendarView.mjs";
-import HeaderView from "../view/header/headerView.mjs";
+import HeaderView from "../view/header/HeaderView.mjs";
 import ShoppingFormView from "../view/shopping/ShoppingFormView.mjs";
 import ShoppingListView from "../view/shopping/ShoppingListView.mjs";
 import TodosFormView from "../view/todos/TodosFormView.mjs";
@@ -9,7 +9,8 @@ import TodosListView from "../view/todos/TodosListView.mjs";
 import loadWeather from "../view/weather/WeatherView.mjs";
 
 export default class AppController {
-    constructor(body, wrapper, casesBlock, shopping, weather) {
+    constructor(body, wrapper, casesBlock, shopping) {
+        console.log("AppController being initialized");
     // Підключаємо та вставляємо головне меню
         this.headerView = new HeaderView(body, {
             onBurgerClick: this.clickOnBurger,
@@ -56,8 +57,13 @@ export default class AppController {
             .fetchTodosList()
             .then(() => {
                 this.todosListView.renderList(this._collection._list)
-                console.log(this._collection._list);
             });
+        this.checkDisplaySize();
+    }
+
+    checkDisplaySize() {
+        console.log("Checking display size");
+        this._collection.addContainer();
     }
 
     clickOnBurger = (body, burger, menu) => {

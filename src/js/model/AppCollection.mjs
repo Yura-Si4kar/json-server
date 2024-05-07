@@ -6,6 +6,16 @@ export default class AppCollection {
         this._list = [];
         this._shoppingList = [];
     }
+
+    addContainer() {
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 375) {
+                document.querySelector('main').classList.add('container');
+            } else {
+                document.querySelector('main').classList.remove('container');
+            }
+        })
+    }
    
     fetchTodosList() {
         return fetch(this._url, {
@@ -80,9 +90,9 @@ export default class AppCollection {
 
     matchSearch(block, value) {
         block.innerHTML = this._list
-            .filter(element => element.title.toLowerCase().includes(value))
+            .filter(element => element.title.toLowerCase().includes(value.toLowerCase()))
             .map(element => `${element.title} о ${element.time}, ${new Date(element.date).toLocaleDateString()}`)
-            .join('<br>');
+            .join('\n');
 
         if (value.length < 1) {
             block.innerHTML = '';

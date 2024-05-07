@@ -40,9 +40,13 @@
     }
 
     &__city {
-        font-size: 40px;
+        font-size: 30px;
         font-weight: 700;
         margin-bottom: 15px;
+
+        @media (min-width: 468px) {
+            font-size: 40px;
+        }
     }
 
     &__temp {

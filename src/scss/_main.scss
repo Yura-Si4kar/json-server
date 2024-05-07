@@ -1,8 +1,10 @@
-::-webkit-scrollbar{ width: 5px; /* 1 - вертикальний скроллбар */}
-::-webkit-scrollbar-button {background: transparent; /* 2 - кнопка */}
-::-webkit-scrollbar-track {background: transparent;/* 3 - трек */}
-::-webkit-scrollbar-track-piece { background: transparent; /* 4 – видима частина трека */ }
-::-webkit-scrollbar-thumb {background: rgba(0,0,0,0.3); border-radius: 10px; -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); /* 5 - повзунок */}
+@media screen {
+  ::-webkit-scrollbar{ width: 5px; /* 1 - вертикальний скроллбар */}
+  ::-webkit-scrollbar-button {background: transparent; /* 2 - кнопка */}
+  ::-webkit-scrollbar-track {background: transparent;/* 3 - трек */}
+  ::-webkit-scrollbar-track-piece { background: transparent; /* 4 – видима частина трека */ }
+  ::-webkit-scrollbar-thumb {background: rgba(0,0,0,0.3); border-radius: 10px; -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); /* 5 - повзунок */}
+}
 
 * {
   margin: 0;
@@ -15,14 +17,15 @@ html, .body {
   font-style: normal;
   font-weight: 400;
   height: 100vh;
-  min-width: 375px;
+  min-width: 319px;
   background-size: cover;
+  transition: all 0.5s ease ;
 }
 
 .container {
   margin: 0 auto;
   max-width: 1360px;
-  min-width: 335px;
+  min-width: 280px;
   padding: 0 20px;
 }
 

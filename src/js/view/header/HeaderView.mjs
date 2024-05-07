@@ -6,9 +6,9 @@ export default class HeaderView {
                     <img class="header__img" src="./img/home-filled.svg"
                         width='50' height='50' alt="ninja">
                 </a>
-                <div class="header__burger">
+                <button type='button' class="header__burger">
                     <span></span>
-                </div>
+                </button>
                 <nav class="header__menu">
                     <ul class="header__list" id="header__list">
                         <li>

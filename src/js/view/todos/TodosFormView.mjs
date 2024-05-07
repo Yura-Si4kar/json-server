@@ -6,12 +6,12 @@ export default class TodosFormView {
                 <input class="time-input input" type="time" name="time">
             </p>
             <p>
-                <label for="color" class="title">Вибрати колір події: </label>
+                <label for="color" class="title">Тип події: </label>
                 <select name="color" class='input'>
-                    <option class="red" value="red">red</option>
-                    <option class="green" value="green">green</option>
-                    <option class="yellow" value="yellow">yellow</option>
-                    <option class="blue" value="blue">blue</option>
+                    <option class="red" value="red">work</option>
+                    <option class="green" value="green">rest</option>
+                    <option class="yellow" value="yellow">sport</option>
+                    <option class="blue" value="blue">hobby</option>
                 </select>
             </p>
             <p class="form-input">

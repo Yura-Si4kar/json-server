@@ -1,8 +1,9 @@
 export default class ShoppingFormView {
     static form_template = `<form class="shopping-form">
-        <label class="form-title" for="buy">Сьогодні я хочу: </label>
-        <input class="shopping-input" type="text" name="buy" id="buy" placeholder="введіть текст..."
-            autofocus>
+        <div class="form-control">
+            <input class="shopping-input input-alt" type="text" name="buy" id="buy" placeholder="Додати покупку..." autofocus>
+            <span class="input-border input-border-alt"></span>
+        </div>
         <button class="add-item">Купити</button>
     </form>`;
 

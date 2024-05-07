@@ -90,12 +90,16 @@ td {
   background: transparent;
   border: none;
   outline: none;
-  font-size: 1em;
+  font-size: .8em;
   color: var(--light-grey);
   cursor: pointer;
   font-family: sans-serif;
   text-transform: uppercase;
   transition: all 0.3s ease;
+
+  @media (min-width: 468px) {
+      font-size: 1em;
+  }
 }
 
 .btnPrev:hover,

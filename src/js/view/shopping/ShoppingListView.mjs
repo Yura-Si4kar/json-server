@@ -1,7 +1,7 @@
 export default class ShoppingListView {
     static list_template = `<div>
         <h2 class="shoping-title">Покупки на сьогодні: </h2>
-        <button type="button" class="case-shoping_btn">Очистити список</button>
+        <button type="button" class="case-shoping_btn">Очистити</button>
         <ol class="shoping-list"></ol>
     </div>`;
     
