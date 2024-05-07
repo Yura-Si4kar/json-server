@@ -1,6 +1,6 @@
 import { TODOS_URL, WEATHER_URL } from "../config.mjs";
 import AppCollection from "../model/AppCollection.mjs";
-import CalendarView from "../view/calendar/calendarView.mjs";
+import CalendarView from "../view/calendar/CalendarView.mjs";
 import HeaderView from "../view/header/HeaderView.mjs";
 import ShoppingFormView from "../view/shopping/ShoppingFormView.mjs";
 import ShoppingListView from "../view/shopping/ShoppingListView.mjs";
