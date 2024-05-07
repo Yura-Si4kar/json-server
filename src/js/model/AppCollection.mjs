@@ -8,11 +8,13 @@ export default class AppCollection {
     }
 
     addContainer() {
+        document.querySelector('main').classList.add('container');
+        
         window.addEventListener('resize', () => {
-            if (window.innerWidth >= 375) {
-                document.querySelector('main').classList.add('container');
-            } else {
+            if (window.innerWidth <= 375) {
                 document.querySelector('main').classList.remove('container');
+            } else {
+                document.querySelector('main').classList.add('container');
             }
         })
     }
